@@ -1,29 +1,22 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Admin from "./pages/Admin";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
 
-
-function Layout() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Outlet />
-      </main>
-    </>
-  );
-}
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, 
+    element: <Layout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/menu", element: <Menu /> },
-      { path: "/admin", element: <Admin /> },
+      { index: true, element: <Home /> },  
+      { path: "menu", element: <Menu /> },
+      { path: "cart", element: <Cart /> },
+      { path: "admin", element: <Admin /> },
+      { path: "login", element: <Login /> }
     ],
   },
 ]);
@@ -33,5 +26,4 @@ function App() {
 }
 
 export default App;
-
 

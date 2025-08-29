@@ -26,11 +26,11 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-orange-400 via-red-400 to-orange-600 min-h-[80vh] flex items-center justify-center text-white">
-        <div className="absolute inset-0 bg-black/30"></div>
+      <div className="relative bg-[url('https://img.freepik.com/premium-photo/food-with-delivery-set-dishes-diet-top-view-free-space-your-text-black-background_187166-3086.jpg')] bg-cover bg-center min-h-[80vh] flex items-center justify-center text-white">
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center px-6 max-w-2xl">
           <h1 className="text-5xl md:text-6xl font-bold drop-shadow-lg">
-            Welcome to <span className="text-yellow-300">Tap N'Eat</span> 
+            Welcome to <span className="text-yellow-300">Tap N'Eat</span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-gray-100">
             Delicious meals delivered to your doorstep. Fresh, fast & affordable!
@@ -91,4 +91,3 @@ function Home() {
 }
 
 export default Home;
-

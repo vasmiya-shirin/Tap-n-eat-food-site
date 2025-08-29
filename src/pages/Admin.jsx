@@ -88,6 +88,11 @@ function Admin() {
             className="border p-4 rounded shadow hover:shadow-lg flex flex-col justify-between"
           >
             <div>
+              <img
+                src={p.image}
+                alt={p.name}
+                className="w-full h-32 object-cover rounded mb-2"
+              />
               <h3 className="font-bold">{p.name}</h3>
               <p className="text-sm text-gray-600">{p.category}</p>
               <p className="text-orange-600 font-semibold">₹{p.price}</p>

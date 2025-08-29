@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Margherita Pizza",
+    "category": "Pizza",
+    "price": 8.99,
+    "description": "Classic pizza with tomato sauce, mozzarella, and basil.",
+    "image": "images/margherita.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Pepperoni Pizza",
+    "category": "Pizza",
+    "price": 10.99,
+    "description": "Topped with mozzarella cheese and pepperoni slices.",
+    "image": "images/pepperoni.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Veggie Burger",
+    "category": "Burgers",
+    "price": 7.49,
+    "description": "Grilled veggie patty with lettuce, tomato, and mayo.",
+    "image": "images/veggie_burger.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Cheeseburger",
+    "category": "Burgers",
+    "price": 8.49,
+    "description": "Juicy beef patty with cheddar cheese and pickles.",
+    "image": "images/cheeseburger.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Grilled Chicken Sandwich",
+    "category": "Sandwiches",
+    "price": 6.99,
+    "description": "Grilled chicken breast with lettuce and mayo.",
+    "image": "images/grilled_chicken.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Club Sandwich",
+    "category": "Sandwiches",
+    "price": 7.99,
+    "description": "Triple layered sandwich with chicken, bacon, and lettuce.",
+    "image": "images/club_sandwich.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Caesar Salad",
+    "category": "Salads",
+    "price": 6.49,
+    "description": "Romaine lettuce, parmesan, croutons, and Caesar dressing.",
+    "image": "images/caesar_salad.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Greek Salad",
+    "category": "Salads",
+    "price": 6.99,
+    "description": "Fresh vegetables, feta cheese, and olives.",
+    "image": "images/greek_salad.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Pasta Alfredo",
+    "category": "Pasta",
+    "price": 9.99,
+    "description": "Creamy Alfredo sauce with fettuccine pasta.",
+    "image": "images/pasta_alfredo.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Spaghetti Bolognese",
+    "category": "Pasta",
+    "price": 10.49,
+    "description": "Spaghetti pasta with rich tomato and beef sauce.",
+    "image": "images/spaghetti_bolognese.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Chicken Biryani",
+    "category": "Indian",
+    "price": 11.99,
+    "description": "Fragrant rice cooked with chicken and spices.",
+    "image": "images/chicken_biryani.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Paneer Butter Masala",
+    "category": "Indian",
+    "price": 9.99,
+    "description": "Cottage cheese cubes in rich butter-tomato gravy.",
+    "image": "images/paneer_butter_masala.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Tandoori Roti",
+    "category": "Indian",
+    "price": 1.99,
+    "description": "Whole wheat flatbread baked in tandoor.",
+    "image": "images/tandoori_roti.jpg"
+  },
+  {
+    "id": 14,
+    "name": "French Fries",
+    "category": "Snacks",
+    "price": 3.49,
+    "description": "Crispy golden fries served with ketchup.",
+    "image": "images/fries.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Onion Rings",
+    "category": "Snacks",
+    "price": 4.49,
+    "description": "Crispy battered onion rings with dip.",
+    "image": "images/onion_rings.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Chocolate Cake",
+    "category": "Desserts",
+    "price": 5.49,
+    "description": "Rich chocolate layered cake with frosting.",
+    "image": "images/chocolate_cake.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Cheesecake",
+    "category": "Desserts",
+    "price": 5.99,
+    "description": "Classic New York style cheesecake.",
+    "image": "images/cheesecake.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Mango Lassi",
+    "category": "Beverages",
+    "price": 3.99,
+    "description": "Sweet yogurt-based mango drink.",
+    "image": "images/mango_lassi.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Iced Coffee",
+    "category": "Beverages",
+    "price": 2.99,
+    "description": "Cold brewed coffee served over ice.",
+    "image": "images/iced_coffee.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Lemonade",
+    "category": "Beverages",
+    "price": 2.49,
+    "description": "Refreshing lemon juice with sugar and ice.",
+    "image": "images/lemonade.jpg"
+  }
+]
