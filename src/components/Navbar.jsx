@@ -45,6 +45,15 @@ function Navbar() {
             Menu
           </NavLink>
           <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
+              }`
+            }
+          >
+            About
+          </NavLink>
+          <NavLink
             to="/cart"
             className={({ isActive }) =>
               `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
@@ -53,10 +62,19 @@ function Navbar() {
           >
             Cart
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full">
+              <span className="absolute right bg-red-600 text-white text-xs px-2 py-1 rounded-full">
                 {totalItems}
               </span>
             )}
+          </NavLink>
+           <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
+              }`
+            }
+          >
+            Contact
           </NavLink>
           {role === "admin" && <NavLink
             to="/admin"

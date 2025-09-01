@@ -5,17 +5,30 @@ import Menu from "./pages/Menu";
 import Admin from "./pages/Admin";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
-
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import AdminMessages from "./pages/AdminMessages";
+import Checkout from "./pages/Checkout";
+import Success from "./pages/Success";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <Home /> },  
+      { index: true, element: <Home /> },
       { path: "menu", element: <Menu /> },
+      { path: "about", element: <About /> },
       { path: "cart", element: <Cart /> },
-      { path: "admin", element: <Admin /> },
+      { path: "checkout", element: <Checkout /> },
+      {path:"success",element:<Success/>},
+      { path: "contact", element: <Contact /> },
+      {
+        path: "admin", element: <Admin />,
+        children: [
+          { path: "adminmessages", element: <AdminMessages /> }
+        ],
+      },
       { path: "login", element: <Login /> }
     ],
   },

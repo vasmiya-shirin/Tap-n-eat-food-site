@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice"
+
 function Home() {
+    const dispatch = useDispatch();
   const featured = [
     {
       id: 1,
@@ -76,7 +80,7 @@ function Home() {
                   <p className="text-gray-600 mt-1">{dish.desc}</p>
                   <div className="mt-3 flex justify-between items-center">
                     <span className="text-orange-600 font-semibold">{dish.price}</span>
-                    <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition">
+                    <button  onClick={() => dispatch(addToCart(dish))} className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition">
                       Add to Cart
                     </button>
                   </div>
