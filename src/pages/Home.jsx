@@ -12,21 +12,21 @@ const orderPlaced = useSelector((state) => state.order.placed);
       id: 1,
       name: "Cheesy Burger",
       desc: "Juicy beef patty with melted cheese & fresh veggies",
-      price: "₹150",
+      price: "150",
       img: "https://www.shutterstock.com/image-photo/close-tasty-burger-isolated-on-600nw-2494691375.jpg",
     },
     {
       id: 2,
       name: "Hot & Spicy Pizza",
       desc: "Loaded with toppings, baked to perfection",
-      price: "₹299",
+      price: "299",
       img: "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg",
     },
     {
       id: 3,
       name: "Creamy Pasta",
       desc: "Italian pasta tossed in creamy sauce",
-      price: "₹220",
+      price: "220",
       img: "https://img.freepik.com/free-photo/plate-fettuccine-alfredo-with-fresh-parsley_9975-124881.jpg?semt=ais_hybrid&w=740&q=80",
     },
   ];
@@ -83,7 +83,7 @@ const orderPlaced = useSelector((state) => state.order.placed);
                   <h3 className="text-xl font-bold text-gray-800">{dish.name}</h3>
                   <p className="text-gray-600 mt-1">{dish.desc}</p>
                   <div className="mt-3 flex justify-between items-center">
-                    <span className="text-orange-600 font-semibold">{dish.price}</span>
+                    <span className="text-orange-600 font-semibold">₹{dish.price}</span>
                     <button  onClick={() => dispatch(addToCart(dish))} className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition">
                       Add to Cart
                     </button>
