@@ -1,14 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { placeOrder } from "../redux/orderSlice";
+import { useDispatch } from "react-redux";
 
 function Checkout() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Normally, you'd send order data to backend here
-    navigate("/success"); // redirect to success page
-  };
+    e.preventDefault()
+    dispatch(placeOrder());
+    navigate("/success")
+  }
 
   return (
     <div className="max-w-3xl mx-auto p-6">
@@ -47,7 +49,6 @@ function Checkout() {
         </div>
 
         <button
-          type="submit"
           className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
         >
           Place Order

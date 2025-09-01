@@ -1,7 +1,11 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice"
+import OrderTracking from "./OrderTracking";
+import { useSelector } from "react-redux";
 
 function Home() {
+    
+const orderPlaced = useSelector((state) => state.order.placed);
     const dispatch = useDispatch();
   const featured = [
     {
@@ -88,6 +92,8 @@ function Home() {
               </div>
             ))}
           </div>
+           {/* Order Tracking Section */}
+          {orderPlaced && <OrderTracking /> }
         </div>
       </section>
     </div>

@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import AdminMessages from "./pages/AdminMessages";
 import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
+import OrderTracking from "./pages/OrderTracking";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "cart", element: <Cart /> },
       { path: "checkout", element: <Checkout /> },
+       {path:"ordertracking",element:<OrderTracking/>},
       {path:"success",element:<Success/>},
       { path: "contact", element: <Contact /> },
       {
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: "login", element: <Login /> }
+     
     ],
   },
 ]);
