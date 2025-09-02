@@ -11,6 +11,7 @@ import AdminMessages from "./pages/AdminMessages";
 import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
 import OrderTracking from "./pages/OrderTracking";
+import AdminReviews from "./pages/AdminReviews";
 
 const router = createBrowserRouter([
   {
@@ -22,17 +23,18 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "cart", element: <Cart /> },
       { path: "checkout", element: <Checkout /> },
-       {path:"ordertracking",element:<OrderTracking/>},
-      {path:"success",element:<Success/>},
+      { path: "ordertracking", element: <OrderTracking /> },
+      { path: "success", element: <Success /> },
       { path: "contact", element: <Contact /> },
       {
         path: "admin", element: <Admin />,
         children: [
-          { path: "adminmessages", element: <AdminMessages /> }
+          { path: "adminmessages", element: <AdminMessages /> },
+          { path: "reviews", element: <AdminReviews /> }
         ],
       },
       { path: "login", element: <Login /> }
-     
+
     ],
   },
 ]);

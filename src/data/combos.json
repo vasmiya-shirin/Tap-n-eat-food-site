@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Burger Blast Combo",
+    "desc": "Cheesy Burger + Crispy Fries + Chilled Coke",
+    "price": 299,
+    "items": ["Cheesy Burger", "French Fries", "Coke"],
+    "image": "https://via.placeholder.com/150?text=Burger+Combo"
+  },
+  {
+    "id": 2,
+    "name": "Pizza Party Combo",
+    "desc": "Medium Pizza + Garlic Bread + Coke (2)",
+    "price": 599,
+    "items": ["Medium Pizza", "Garlic Bread", "Coke (2)"],
+    "image": "https://via.placeholder.com/150?text=Pizza+Combo"
+  },
+  {
+    "id": 3,
+    "name": "Family Feast Combo",
+    "desc": "2 Large Pizzas + 1 Garlic Bread + 4 Soft Drinks",
+    "price": 1199,
+    "items": ["Large Pizza (2)", "Garlic Bread", "Soft Drink (4)"],
+    "image": "https://via.placeholder.com/150?text=Family+Combo"
+  },
+  {
+    "id": 4,
+    "name": "Quick Snack Combo",
+    "desc": "Veg Sandwich + Fries + Iced Tea",
+    "price": 249,
+    "items": ["Veg Sandwich", "French Fries", "Iced Tea"],
+    "image": "https://via.placeholder.com/150?text=Snack+Combo"
+  },
+  {
+    "id": 5,
+    "name": "Healthy Delight Combo",
+    "desc": "Grilled Chicken Salad + Fresh Juice",
+    "price": 349,
+    "items": ["Grilled Chicken Salad", "Fresh Juice"],
+    "image": "https://via.placeholder.com/150?text=Healthy+Combo"
+  }
+]

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import AdminReviews from "./AdminReviews";
+import AdminCombos from "./AdminCombos";
 
 function Admin() {
   const [products, setProducts] = useState([]);
@@ -206,7 +208,10 @@ function Admin() {
           </div>
         )}
       </div>
+      <AdminCombos/>
+      <AdminReviews/>
     </div>
+    
   );
 }
 

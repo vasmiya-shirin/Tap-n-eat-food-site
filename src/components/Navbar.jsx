@@ -16,7 +16,7 @@ function Navbar() {
     navigate("/login"); // redirect to login
   };
   return (
-    <nav className="bg-orange-500 shadow-md">
+    <nav className="bg-orange-500 dark:bg-gray-900 shadow-md transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <img src="https://png.pngtree.com/png-vector/20220623/ourmid/pngtree-food-logo-png-image_5297921.png" alt="food logo" width={70}></img>
         {/* Brand */}
@@ -67,7 +67,7 @@ function Navbar() {
               </span>
             )}
           </NavLink>
-           <NavLink
+          <NavLink
             to="/contact"
             className={({ isActive }) =>
               `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
@@ -88,10 +88,10 @@ function Navbar() {
           {role ? (
             <button
               onClick={handleLogout}
-               className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }
+              className={({ isActive }) =>
+                `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
+                }`
+              }
             >
               Logout
             </button>
