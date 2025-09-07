@@ -6,7 +6,8 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
   globalIgnores(['dist']),
-  {
+  { 
+    darkMode:"class", 
     files: ['**/*.{js,jsx}'],
     extends: [
       js.configs.recommended,

@@ -31,12 +31,15 @@ function Menu() {
     fetchProducts();
   }, []);
 
-  if (loading) return <p className="p-6">Loading...</p>;
+  if (loading)
+    return (
+      <p className="p-6" style={{ color: "var(--text-color)" }}>
+        Loading...
+      </p>
+    );
 
-  // Extract unique categories from products
   const categories = ["All", ...new Set(products.map((p) => p.category || "Other"))];
 
-  // Apply search + category filter
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = category === "All" || product.category === category;
@@ -49,7 +52,10 @@ function Menu() {
   };
 
   return (
-    <div className="p-6">
+    <div
+      className="p-6 min-h-screen transition-colors duration-300"
+      style={{ backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
+    >
       <h2 className="text-2xl font-semibold mb-4">🍴 Our Menu</h2>
 
       {/* Search + Filter Controls */}
@@ -60,15 +66,25 @@ function Menu() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="border p-2 rounded w-full md:w-1/2"
+          style={{
+            borderColor: "var(--primary-color)",
+            backgroundColor: "var(--bg-color)",
+            color: "var(--text-color)"
+          }}
         />
 
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           className="border p-2 rounded"
+          style={{
+            borderColor: "var(--primary-color)",
+            backgroundColor: "var(--bg-color)",
+            color: "var(--text-color)"
+          }}
         >
           {categories.map((cat) => (
-            <option key={cat} value={cat}>
+            <option key={cat} value={cat} style={{ backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}>
               {cat}
             </option>
           ))}
@@ -76,7 +92,11 @@ function Menu() {
 
         <button
           onClick={clearFilters}
-          className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
+          className="px-4 py-2 rounded hover:opacity-90 transition"
+          style={{
+            backgroundColor: "var(--primary-color)",
+            color: "var(--text-color)"
+          }}
         >
           Clear Filters
         </button>
@@ -88,7 +108,15 @@ function Menu() {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="border p-4 rounded shadow">
+            <div
+              key={product.id}
+              className="border p-4 rounded shadow hover:scale-105 transition-transform duration-300"
+              style={{
+                borderColor: "var(--primary-color)",
+                backgroundColor: "var(--bg-color)",
+                color: "var(--text-color)"
+              }}
+            >
               {product.image && (
                 <img
                   src={product.image}
@@ -97,11 +125,19 @@ function Menu() {
                 />
               )}
               <h3 className="font-bold">{product.name}</h3>
-              <p className="text-orange-600 font-semibold">₹{product.price}</p>
-              <p className="text-sm text-gray-500">{product.category}</p>
+              <p className="text-sm" style={{ color: "var(--text-color)" }}>
+                {product.category}
+              </p>
+              <p className="font-semibold" style={{ color: "var(--primary-color)" }}>
+                ₹{product.price}
+              </p>
               <button
                 onClick={() => dispatch(addToCart(product))}
-                className="bg-orange-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-orange-600"
+                className="px-4 py-2 rounded mt-2 hover:opacity-90 transition"
+                style={{
+                  backgroundColor: "var(--primary-color)",
+                  color: "var(--text-color)"
+                }}
               >
                 Add to Cart
               </button>
@@ -114,3 +150,4 @@ function Menu() {
 }
 
 export default Menu;
+

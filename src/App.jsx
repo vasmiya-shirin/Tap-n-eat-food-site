@@ -12,6 +12,8 @@ import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
 import OrderTracking from "./pages/OrderTracking";
 import AdminReviews from "./pages/AdminReviews";
+import { useTheme } from "./context/ThemeContext";  // 👈 use context instead
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -27,21 +29,30 @@ const router = createBrowserRouter([
       { path: "success", element: <Success /> },
       { path: "contact", element: <Contact /> },
       {
-        path: "admin", element: <Admin />,
+        path: "admin",
+        element: <Admin />,
         children: [
           { path: "adminmessages", element: <AdminMessages /> },
           { path: "reviews", element: <AdminReviews /> }
         ],
       },
       { path: "login", element: <Login /> }
-
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  const { theme } = useTheme(); // 👈 get theme from context
+
+  return (
+    
+    <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;
+
+
 

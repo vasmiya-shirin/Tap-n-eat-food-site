@@ -1,0 +1,33 @@
+body.light {
+  --bg-color: #ffffff;
+  --card-bg-color: #f9f9f9;
+  --text-color: #15803d;
+  --primary-color: #ff7f00;
+  --secondary-color: #f59e0b;
+  --hero-overlay: rgba(0, 0, 0, 0.4);
+  --completed-color: #16a34a;
+  --success-color: #16a34a;
+  --button-bg-color: #f97316;
+  --button-hover-bg-color: #ea580c;
+  --button-text-color: #ffffff;
+}
+
+body.dark {
+  --bg-color: #121212;
+  --card-bg-color: #111827;
+  --text-color: #eaeff3;
+  --primary-color: #f59e0b;
+  --secondary-color: #eab308;
+  --hero-overlay: rgba(0, 0, 0, 0.6);
+  --completed-color: #15803d;
+  --success-color: #22c55e;
+  --button-bg-color: #f97316;
+  --button-hover-bg-color: #ea580c;
+  --button-text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

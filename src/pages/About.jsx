@@ -1,5 +1,3 @@
-
-// src/pages/About.jsx
 import React from "react";
 
 const teamMembers = [
@@ -22,11 +20,16 @@ const teamMembers = [
 
 function About() {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12 space-y-16">
+    <div
+      className="max-w-7xl mx-auto px-6 py-12 space-y-16 transition-colors duration-300"
+      style={{ backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
+    >
       {/* Hero Section */}
       <section className="text-center">
-        <h1 className="text-5xl font-bold text-orange-500 mb-4">About Tap N' Eat</h1>
-        <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+        <h1 className="text-5xl font-bold mb-4" style={{ color: "var(--primary-color)" }}>
+          About Tap N' Eat
+        </h1>
+        <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--text-color)" }}>
           Tap N' Eat is your go-to platform for fresh and delicious meals delivered straight
           to your doorstep. We combine convenience with quality to give you the best food
           experience.
@@ -36,14 +39,18 @@ function About() {
       {/* Mission & Features */}
       <section className="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-3xl font-semibold text-orange-500 mb-4">Our Mission</h2>
-          <p className="text-gray-700 text-lg mb-6">
+          <h2 className="text-3xl font-semibold mb-4" style={{ color: "var(--primary-color)" }}>
+            Our Mission
+          </h2>
+          <p className="text-lg mb-6" style={{ color: "var(--text-color)" }}>
             Our mission is to make food ordering simple, enjoyable, and accessible. Whether
             it's your favorite meal or trying something new, we are here to deliver fresh
             and tasty food every time.
           </p>
-          <h2 className="text-3xl font-semibold text-orange-500 mb-4">Why Choose Us?</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <h2 className="text-3xl font-semibold mb-4" style={{ color: "var(--primary-color)" }}>
+            Why Choose Us?
+          </h2>
+          <ul className="list-disc list-inside space-y-2" style={{ color: "var(--text-color)" }}>
             <li>Fresh, high-quality ingredients in every meal.</li>
             <li>Fast and reliable delivery service.</li>
             <li>User-friendly online ordering system.</li>
@@ -61,20 +68,30 @@ function About() {
 
       {/* Team Section */}
       <section>
-        <h2 className="text-3xl font-semibold text-orange-500 text-center mb-8">Meet Our Team</h2>
+        <h2 className="text-3xl font-semibold text-center mb-8" style={{ color: "var(--primary-color)" }}>
+          Meet Our Team
+        </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl transition-shadow duration-300"
+              className="rounded-xl shadow-md p-6 text-center hover:shadow-xl transition-shadow duration-300"
+              style={{
+                backgroundColor: "var(--bg-color)",
+                color: "var(--text-color)",
+                borderColor: "var(--primary-color)",
+                borderWidth: "1px"
+              }}
             >
               <img
                 src={member.img}
                 alt={member.name}
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
-              <p className="text-gray-500">{member.role}</p>
+              <h3 className="text-xl font-semibold" style={{ color: "var(--text-color)" }}>
+                {member.name}
+              </h3>
+              <p style={{ color: "var(--text-color)" }}>{member.role}</p>
             </div>
           ))}
         </div>
@@ -84,3 +101,4 @@ function About() {
 }
 
 export default About;
+

@@ -16,14 +16,12 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Save message to localStorage
     const savedMessages = JSON.parse(localStorage.getItem("messages")) || [];
     const newMessages = [...savedMessages, formData];
     localStorage.setItem("messages", JSON.stringify(newMessages));
 
     alert("✅ Thank you! Your message has been saved.");
 
-    // Reset form
     setFormData({
       name: "",
       email: "",
@@ -34,13 +32,26 @@ function Contact() {
   };
 
   return (
-    <div className="p-6 md:p-12 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl font-bold text-center mb-6">📞 Contact Us</h2>
+    <div
+      className="p-6 md:p-12 min-h-screen transition-colors duration-300"
+      style={{ backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
+    >
+      <h2
+        className="text-3xl font-bold text-center mb-6"
+        style={{ color: "var(--primary-color)" }}
+      >
+        📞 Contact Us
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {/* Contact Info */}
-        <div className="bg-white shadow-lg rounded-2xl p-6">
-          <h3 className="text-xl font-semibold mb-4">Our Information</h3>
+        <div
+          className="shadow-lg rounded-2xl p-6"
+          style={{ backgroundColor: "var(--card-bg-color)", color: "var(--text-color)" }}
+        >
+          <h3 className="text-xl font-semibold mb-4" style={{ color: "var(--primary-color)" }}>
+            Our Information
+          </h3>
           <p className="mb-2">📍 Address: 123 Food Street, Malappuram, India</p>
           <p className="mb-2">📧 Email: support@tapneat.com</p>
           <p className="mb-2">📞 Phone: +91 98765 43210</p>
@@ -58,9 +69,12 @@ function Contact() {
         {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-lg rounded-2xl p-6"
+          className="shadow-lg rounded-2xl p-6"
+          style={{ backgroundColor: "var(--card-bg-color)", color: "var(--text-color)" }}
         >
-          <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
+          <h3 className="text-xl font-semibold mb-4" style={{ color: "var(--primary-color)" }}>
+            Send a Message
+          </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
@@ -71,6 +85,7 @@ function Contact() {
               placeholder="Your Name"
               required
               className="border p-2 rounded w-full"
+              style={{ borderColor: "var(--primary-color)", backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
             />
             <input
               type="email"
@@ -80,6 +95,7 @@ function Contact() {
               placeholder="Your Email"
               required
               className="border p-2 rounded w-full"
+              style={{ borderColor: "var(--primary-color)", backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
             />
             <input
               type="tel"
@@ -88,6 +104,7 @@ function Contact() {
               onChange={handleChange}
               placeholder="Your Phone"
               className="border p-2 rounded w-full"
+              style={{ borderColor: "var(--primary-color)", backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
             />
             <input
               type="text"
@@ -96,6 +113,7 @@ function Contact() {
               onChange={handleChange}
               placeholder="Subject"
               className="border p-2 rounded w-full"
+              style={{ borderColor: "var(--primary-color)", backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
             />
           </div>
 
@@ -107,11 +125,13 @@ function Contact() {
             rows="4"
             required
             className="border p-2 rounded w-full mt-4"
+            style={{ borderColor: "var(--primary-color)", backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
           ></textarea>
 
           <button
             type="submit"
-            className="bg-orange-500 text-white px-6 py-2 rounded-lg mt-4 hover:bg-orange-600 transition"
+            className="px-6 py-2 rounded-lg mt-4 hover:opacity-90 transition"
+            style={{ backgroundColor: "var(--primary-color)", color: "var(--text-color)" }}
           >
             Send Message
           </button>

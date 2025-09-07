@@ -1,106 +1,72 @@
-import { NavLink } from "react-router-dom"
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useTheme } from "../context/ThemeContext";
+import { Moon, Sun } from "lucide-react";
+import "./Navbar.css"; // Import the CSS file
 
 function Navbar() {
-  const cart = useSelector((state) => state.cart); // read cart from store
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0)
-
+  const cart = useSelector((state) => state.cart);
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const navigate = useNavigate();
-  const role = localStorage.getItem("userRole"); // get current role
+  const role = localStorage.getItem("userRole");
+
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogout = () => {
     localStorage.removeItem("userRole");
     alert("✅ Logged out successfully!");
-    navigate("/login"); // redirect to login
+    navigate("/login");
   };
-  return (
-    <nav className="bg-orange-500 dark:bg-gray-900 shadow-md transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <img src="https://png.pngtree.com/png-vector/20220623/ourmid/pngtree-food-logo-png-image_5297921.png" alt="food logo" width={70}></img>
-        {/* Brand */}
-        <h1 className="text-2xl font-bold tracking-wide text-white">
-          Tap N' Eat
-        </h1>
 
-        {/* Links */}
-        <div className="flex gap-6">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }
-          >
+  return (
+    <nav className={`navbar ${theme}`}>
+      <div className="navbar-container">
+        <div className="logo-section">
+          <img
+            src="https://png.pngtree.com/png-vector/20220623/ourmid/pngtree-food-logo-png-image_5297921.png"
+            alt="food logo"
+            width={60}
+          />
+          <h1>Tap N' Eat</h1>
+        </div>
+
+        <div className="nav-links">
+          <NavLink to="/" className="nav-link">
             Home
           </NavLink>
-          <NavLink
-            to="/menu"
-            className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }
-          >
+          <NavLink to="/menu" className="nav-link">
             Menu
           </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }
-          >
+          <NavLink to="/about" className="nav-link">
             About
           </NavLink>
-          <NavLink
-            to="/cart"
-            className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }
-          >
+          <NavLink to="/cart" className="nav-link cart-link">
             Cart
             {totalItems > 0 && (
-              <span className="absolute right bg-red-600 text-white text-xs px-2 py-1 rounded-full">
-                {totalItems}
-              </span>
+              <span className="cart-badge">{totalItems}</span>
             )}
           </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }
-          >
+          <NavLink to="/contact" className="nav-link">
             Contact
           </NavLink>
-          {role === "admin" && <NavLink
-            to="/admin"
-            className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }
-          >
-            Admin
-          </NavLink>}
+          {role === "admin" && (
+            <NavLink to="/admin" className="nav-link">
+              Admin
+            </NavLink>
+          )}
           {role ? (
-            <button
-              onClick={handleLogout}
-              className={({ isActive }) =>
-                `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-                }`
-              }
-            >
+            <button onClick={handleLogout} className="nav-link btn-link">
               Logout
             </button>
           ) : (
-            <NavLink to="/login" className={({ isActive }) =>
-              `transition-colors duration-200 font-medium ${isActive ? "text-white border-b-2 border-white" : "text-orange-100 hover:text-white"
-              }`
-            }>Login</NavLink>
+            <NavLink to="/login" className="nav-link">
+              Login
+            </NavLink>
           )}
+
+          <button onClick={toggleTheme} className="theme-toggle-btn">
+            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
         </div>
       </div>
     </nav>

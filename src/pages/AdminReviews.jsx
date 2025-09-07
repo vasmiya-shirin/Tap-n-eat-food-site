@@ -1,4 +1,3 @@
-// src/pages/AdminReviews.jsx
 import React, { useEffect, useState } from "react";
 
 function AdminReviews() {
@@ -27,8 +26,16 @@ function AdminReviews() {
   };
 
   return (
-    <div className="p-6 md:p-12 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl font-bold text-center mb-6">⭐ Manage Reviews</h2>
+    <div
+      className="p-6 md:p-12 min-h-screen transition-colors duration-300"
+      style={{ backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
+    >
+      <h2
+        className="text-3xl font-bold text-center mb-6"
+        style={{ color: "var(--primary-color)" }}
+      >
+        ⭐ Manage Reviews
+      </h2>
 
       {reviews.length === 0 ? (
         <p className="text-center text-gray-500">No reviews found.</p>
@@ -37,7 +44,12 @@ function AdminReviews() {
           {reviews.map((r) => (
             <div
               key={r.id}
-              className="bg-white shadow-md rounded-xl p-6 border relative"
+              className="shadow-md rounded-xl p-6 border relative transition-colors duration-300"
+              style={{
+                backgroundColor: "var(--card-bg-color)",
+                borderColor: "var(--primary-color)",
+                color: "var(--text-color)"
+              }}
             >
               <p className="italic">"{r.review}"</p>
               <div className="flex text-yellow-500 mb-2">
@@ -46,7 +58,7 @@ function AdminReviews() {
                 ))}
               </div>
               <p className="mt-2 font-semibold">- {r.name}</p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm">
                 Status:{" "}
                 <span
                   className={
@@ -61,14 +73,22 @@ function AdminReviews() {
                 {r.status !== "approved" && (
                   <button
                     onClick={() => handleApprove(r.id)}
-                    className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                    className="px-3 py-1 rounded hover:opacity-90 transition-colors duration-300"
+                    style={{
+                      backgroundColor: "var(--primary-color)",
+                      color: "var(--text-color)"
+                    }}
                   >
                     Approve
                   </button>
                 )}
                 <button
                   onClick={() => handleDelete(r.id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                  className="px-3 py-1 rounded hover:opacity-90 transition-colors duration-300"
+                  style={{
+                    backgroundColor: "var(--primary-color)",
+                    color: "var(--text-color)"
+                  }}
                 >
                   Delete
                 </button>
@@ -78,9 +98,9 @@ function AdminReviews() {
         </div>
       )}
     </div>
-
   );
 }
 
 export default AdminReviews;
+
 
