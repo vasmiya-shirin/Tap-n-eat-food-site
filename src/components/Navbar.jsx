@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice"; // Import the logout action
 import { useTheme } from "../context/ThemeContext";
 import { Moon, Sun } from "lucide-react";
 import "./Navbar.css"; // Import the CSS file
@@ -7,13 +8,15 @@ import "./Navbar.css"; // Import the CSS file
 function Navbar() {
   const cart = useSelector((state) => state.cart);
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const user = useSelector((state) => state.auth.user); // Get user from authSlice
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const role = localStorage.getItem("userRole");
 
   const { theme, toggleTheme } = useTheme();
 
   const handleLogout = () => {
-    localStorage.removeItem("userRole");
+    dispatch(logout()); // Dispatch logout action
     alert("✅ Logged out successfully!");
     navigate("/login");
   };
@@ -49,15 +52,20 @@ function Navbar() {
           <NavLink to="/contact" className="nav-link">
             Contact
           </NavLink>
-          {role === "admin" && (
+
+          {user && user.role === "admin" && (
             <NavLink to="/admin" className="nav-link">
               Admin
             </NavLink>
           )}
-          {role ? (
-            <button onClick={handleLogout} className="nav-link btn-link">
-              Logout
-            </button>
+
+          {user ? (
+            <>
+              <span className="nav-link">Hello, {user.name}</span>
+              <button onClick={handleLogout} className="nav-link btn-link">
+                Logout
+              </button>
+            </>
           ) : (
             <NavLink to="/login" className="nav-link">
               Login
@@ -74,3 +82,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

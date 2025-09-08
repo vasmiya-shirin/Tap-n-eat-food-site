@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/authSlice"; // Import login action
 
 function Login() {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
     role: "customer", // default role
   });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,15 +26,30 @@ function Login() {
       formData.email === "admin@test.com" &&
       formData.password === "admin123"
     ) {
-      localStorage.setItem("userRole", "admin");
+      const user = {
+        name: formData.name || "Admin",
+        email: formData.email,
+        role: "admin",
+      };
+      dispatch(login(user)); // Dispatch login action
       alert("✅ Admin logged in");
-      navigate("/admin");
-    } else if (formData.role === "customer" && formData.email && formData.password) {
-      localStorage.setItem("userRole", "customer");
+      navigate("/admin"); // ✅ Use role-based route
+    } else if (
+      formData.role === "customer" &&
+      formData.email &&
+      formData.password &&
+      formData.name
+    ) {
+      const user = {
+        name: formData.name,
+        email: formData.email,
+        role: "customer",
+      };
+      dispatch(login(user)); // Dispatch login action
       alert("✅ Customer logged in");
-      navigate("/menu");
+      navigate("/menu"); // ✅ Use role-based route
     } else {
-      alert("❌ Invalid credentials!");
+      alert("❌ Invalid credentials or missing name!");
     }
   };
 
@@ -40,7 +59,7 @@ function Login() {
       style={{ backgroundColor: "var(--bg-color)", color: "var(--text-color)" }}
     >
       <div
-        className="w-full bg-white p-6 rounded-lg shadow-lg transition-colors duration-300"
+        className="w-full p-6 rounded-lg shadow-lg transition-colors duration-300"
         style={{ backgroundColor: "var(--card-bg-color)", color: "var(--text-color)" }}
       >
         <h2
@@ -51,6 +70,24 @@ function Login() {
         </h2>
 
         <form onSubmit={handleLogin} className="space-y-4">
+          {/* Name */}
+          <div>
+            <label className="block mb-1 font-medium">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full border p-2 rounded transition-colors duration-300"
+              style={{
+                borderColor: "var(--primary-color)",
+                backgroundColor: "var(--bg-color)",
+                color: "var(--text-color)",
+              }}
+              required
+            />
+          </div>
+
           {/* Email */}
           <div>
             <label className="block mb-1 font-medium">Email</label>
@@ -63,7 +100,7 @@ function Login() {
               style={{
                 borderColor: "var(--primary-color)",
                 backgroundColor: "var(--bg-color)",
-                color: "var(--text-color)"
+                color: "var(--text-color)",
               }}
               required
             />
@@ -81,7 +118,7 @@ function Login() {
               style={{
                 borderColor: "var(--primary-color)",
                 backgroundColor: "var(--bg-color)",
-                color: "var(--text-color)"
+                color: "var(--text-color)",
               }}
               required
             />
@@ -98,7 +135,7 @@ function Login() {
               style={{
                 borderColor: "var(--primary-color)",
                 backgroundColor: "var(--bg-color)",
-                color: "var(--text-color)"
+                color: "var(--text-color)",
               }}
             >
               <option value="customer">Customer</option>
@@ -112,7 +149,7 @@ function Login() {
             className="w-full py-2 rounded-lg hover:opacity-90 transition-colors duration-300"
             style={{
               backgroundColor: "var(--primary-color)",
-              color: "var(--text-color)"
+              color: "var(--button-text-color)",
             }}
           >
             Login

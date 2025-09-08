@@ -15,7 +15,7 @@ body.light {
 body.dark {
   --bg-color: #121212;
   --card-bg-color: #111827;
-  --text-color: #eaeff3;
+  --text-color: #9bcffa;
   --primary-color: #f59e0b;
   --secondary-color: #eab308;
   --hero-overlay: rgba(0, 0, 0, 0.6);
